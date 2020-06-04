@@ -7,7 +7,6 @@ import SideDrawer from '../Navigation/SideDrawer/SideDrawer'
 
 const layout = ( props ) => (
     <Auxiliary>
-
         <Toolbar/>
         <SideDrawer/>
         <main className={classes.Content}>
