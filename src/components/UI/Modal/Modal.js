@@ -1,25 +1,23 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import classes from './Modal.css';
 import Auxiliary from '../../../hoc/Auxiliary/Auxiliary';
 import Backdrop from '../Backdrop/Backdrop';
 
-class Modal extends Component{
+class Modal extends Component {
 
-    shouldComponentUpdate(nextProps, nextState) {
-        return nextProps.show !== this.props.show;
+    shouldComponentUpdate ( nextProps, nextState ) {
+        return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
     }
 
-    componentWillUpdate() {
+    componentWillUpdate () {
         console.log('[Modal] WillUpdate');
-
     }
 
-
-    render() {
-        return(
+    render () {
+        return (
             <Auxiliary>
-                <Backdrop show={this.props.show} clicked={this.props.modalClosed}/>
+                <Backdrop show={this.props.show} clicked={this.props.modalClosed} />
                 <div
                     className={classes.Modal}
                     style={{
@@ -29,7 +27,7 @@ class Modal extends Component{
                     {this.props.children}
                 </div>
             </Auxiliary>
-        );
+        )
     }
 }
 
