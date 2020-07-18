@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './Orders.css'
+import classes from './Order.css'
 
 const order = (props) => (
     <div className={classes.Order}>
