@@ -1,6 +1,7 @@
 import React from 'react';
 
 import classes from './Input.css';
+import option from "eslint-plugin-jsx-a11y/lib/util/implicitRoles/option";
 
 const input = (props) => {
     let inputElement = null;
@@ -17,6 +18,21 @@ const input = (props) => {
                 className={classes.InputElement}
                 {...props.elementConfig}
                 value={props.value}/>;
+            break;
+        case('select'):
+            inputElement = (
+                <select
+                    className={classes.InputElement}
+                    value={props.value}>
+                    {props.elementConfig.options.map(option => (
+                        <option
+                            key={option.value}
+                            value={option.value}>
+                            {option.displayValue}
+                        </option>
+                    ))}
+                </select>
+            );
             break;
         default:
             inputElement = <input
